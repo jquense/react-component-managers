@@ -4,9 +4,12 @@ import createTimeoutManager from './timeoutManager';
 import createMountManager from './mountManager';
 
 export default function createFocusManager(instance, {
-  onChange,
   willHandle,
-  didHandle
+  didHandle,
+  onChange = (focused, e) => {
+    let handler = instance.props[focused ? 'onFocus' : 'onBlur']
+    handler && handler(e);
+  },
 }) {
   let lastFocused;
   let timeouts = createTimeoutManager(instance);
