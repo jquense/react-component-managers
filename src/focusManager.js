@@ -10,7 +10,7 @@ export default function createFocusManager(instance, {
     let handler = instance.props[focused ? 'onFocus' : 'onBlur']
     handler && handler(e);
   },
-}) {
+} = {}) {
   let lastFocused;
   let timeouts = createTimeoutManager(instance);
   let isMounted = createMountManager(instance);
