@@ -3,21 +3,20 @@ import { unstable_batchedUpdates as batchedUpdates } from 'react-dom';
 import createTimeoutManager from './timeoutManager';
 import createMountManager from './mountManager';
 
+export function callFocusEventHandler(inst, focused, e) {
+  let handler = inst.props[focused ? 'onFocus' : 'onBlur']
+  handler && handler(e);
+}
 
 export default function createFocusManager(instance, {
   willHandle,
   didHandle,
   onChange,
-  fireEventHandlers = true,
+  isDisabled = () => !!instance.props.disabled,
 }) {
   let lastFocused;
   let timeouts = createTimeoutManager(instance);
   let isMounted = createMountManager(instance);
-
-  function callbacks(focused, e) {
-    let handler = instance.props[focused ? 'onFocus' : 'onBlur']
-    handler && handler(e);
-  }
 
   function handleFocus(focused, event) {
     if (event && event.persist)
@@ -28,13 +27,9 @@ export default function createFocusManager(instance, {
 
     timeouts.set('focus', () => {
       batchedUpdates(() => {
-        if (didHandle)
-          didHandle.call(instance, focused, event)
-
         if (focused !== lastFocused) {
-          if (fireEventHandlers) {
-            callbacks(focused, event);
-          }
+          if (didHandle)
+            didHandle.call(instance, focused, event)
 
           // only fire a change when unmounted if its a blur
           if (isMounted() || !focused) {
@@ -48,11 +43,13 @@ export default function createFocusManager(instance, {
 
   return {
     handleBlur(event) {
-      handleFocus(false, event)
+      if (!isDisabled())
+        handleFocus(false, event)
     },
 
     handleFocus(event) {
-      handleFocus(true, event)
+      if (!isDisabled())
+        handleFocus(true, event)
     }
   };
 }
