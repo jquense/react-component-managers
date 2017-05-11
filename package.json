@@ -12,23 +12,25 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
-    "clean": "nwb clean-module && npm clean-demo",
-    "start": "nwb serve-react-demo",
-    "test": "nwb test",
-    "test:coverage": "nwb test --coverage",
-    "test:watch": "nwb test --server"
+    "build": "babel src --out-dir lib",
+    "clean": "rm -rf lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.5.9"
+  },
   "peerDependencies": {
-    "react": "15.x"
+    "react": ">=15.3.0",
+    "react-dom": ">=15.3.0"
   },
   "devDependencies": {
-    "nwb": "0.12.x",
+    "babel-cli": "^6.24.1",
+    "babel-preset-jason": "^3.0.0",
+    "eslint-config-jason": "^4.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
   },
-  "author": "",
+  "author": "Jason Quense",
   "homepage": "",
   "license": "MIT",
   "repository": "",
