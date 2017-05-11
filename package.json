@@ -1,6 +1,6 @@
 {
   "name": "react-component-managers",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "react-component-managers React component",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
