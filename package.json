@@ -3,16 +3,12 @@
   "version": "3.0.0",
   "description": "react-component-managers React component",
   "main": "lib/index.js",
-  "jsnext:main": "es/index.js",
-  "module": "es/index.js",
   "files": [
-    "css",
-    "es",
-    "lib",
-    "umd"
+    "lib"
   ],
   "scripts": {
     "build": "babel src --out-dir lib",
+    "prepublish": "npm run build",
     "clean": "rm -rf lib"
   },
   "dependencies": {
