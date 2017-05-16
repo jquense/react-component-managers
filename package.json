@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-preset-jason": "^3.0.0",
+    "babel-preset-jason": "^3.1.0",
     "eslint-config-jason": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "react": "^15.3.1",
