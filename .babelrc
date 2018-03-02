@@ -1,5 +1,12 @@
 {
   "presets": [
-    "jason"
-  ]
+    ["jason", { "runtime": false  }]
+  ],
+  "env": {
+    "esm": {
+      "presets": [
+        ["jason", { "runtime": false, "modules": false }]
+      ]
+    }
+  }
 }

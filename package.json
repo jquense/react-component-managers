@@ -3,31 +3,35 @@
   "version": "3.0.2",
   "description": "react-component-managers React component",
   "main": "lib/index.js",
+  "modules": "es/index.js",
   "files": [
-    "lib"
+    "lib",
+    "es"
   ],
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib && npm run build:esm",
+    "build:esm": "BABEL_ENV=esm babel src --out-dir es",
+    "prepublishOnly": "npm run build",
     "clean": "rm -rf lib"
   },
   "dependencies": {
-    "prop-types": "^15.5.9"
+    "prop-types": "^15.6.1",
+    "spy-on-component": "^1.0.2"
   },
   "peerDependencies": {
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-jason": "^3.1.0",
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "babel-preset-jason": "^4.1.0",
     "eslint-config-jason": "^4.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "eslint-plugin-import": "^2.9.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "author": "Jason Quense",
-  "homepage": "",
   "license": "MIT",
   "repository": "",
   "keywords": [
