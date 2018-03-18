@@ -33,7 +33,10 @@
   },
   "author": "Jason Quense",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jquense/react-component-managers"
+  },
   "keywords": [
     "react-component"
   ]
