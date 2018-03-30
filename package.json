@@ -4,15 +4,14 @@
   "description": "react-component-managers React component",
   "main": "lib/index.js",
   "modules": "es/index.js",
-  "files": [
-    "lib",
-    "es"
-  ],
+  "files": ["lib", "es"],
+  "private": true,
   "scripts": {
     "build": "babel src --out-dir lib && npm run build:esm",
     "build:esm": "BABEL_ENV=esm babel src --out-dir es",
     "prepublishOnly": "npm run build",
-    "clean": "rm -rf lib"
+    "clean": "rm -rf lib",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "prop-types": "^15.6.1",
@@ -23,18 +22,38 @@
     "react-dom": ">=15.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.40",
-    "@babel/core": "^7.0.0-beta.40",
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@semantic-release/changelog": "^2.0.1",
+    "@semantic-release/git": "^4.0.1",
+    "@semantic-release/npm": "^3.2.2",
     "babel-preset-jason": "^4.1.0",
     "eslint-config-jason": "^4.0.0",
-    "eslint-plugin-import": "^2.9.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "eslint-plugin-import": "^2.10.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "semantic-release": "^15.1.4"
   },
   "author": "Jason Quense",
   "license": "MIT",
-  "repository": "",
-  "keywords": [
-    "react-component"
-  ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jquense/react-component-managers.git"
+  },
+  "keywords": ["react-component"],
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": ["package.json"]
+      }
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  }
 }
