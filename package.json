@@ -1,10 +1,13 @@
 {
   "name": "react-component-managers",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "react-component-managers React component",
   "main": "lib/index.js",
   "modules": "es/index.js",
-  "files": ["lib", "es"],
+  "files": [
+    "lib",
+    "es"
+  ],
   "scripts": {
     "build": "babel src -d lib --ignore '**/__tests__' && npm run build:esm",
     "build:esm": "babel src -d es --env-name esm --ignore '**/__tests__'",
@@ -47,14 +50,18 @@
     "type": "git",
     "url": "https://github.com/jquense/react-component-managers.git"
   },
-  "keywords": ["react-component"],
+  "keywords": [
+    "react-component"
+  ],
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
       {
         "path": "@semantic-release/git",
-        "assets": ["package.json"]
+        "assets": [
+          "package.json"
+        ]
       }
     ],
     "prepare": [
