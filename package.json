@@ -4,11 +4,7 @@
   "description": "react-component-managers React component",
   "main": "lib/index.js",
   "modules": "es/index.js",
-  "files": [
-    "lib",
-    "es"
-  ],
-  "private": true,
+  "files": ["lib", "es"],
   "scripts": {
     "build": "babel src --out-dir lib && npm run build:esm",
     "build:esm": "BABEL_ENV=esm babel src --out-dir es",
@@ -48,18 +44,14 @@
     "type": "git",
     "url": "https://github.com/jquense/react-component-managers.git"
   },
-  "keywords": [
-    "react-component"
-  ],
+  "keywords": ["react-component"],
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
       {
         "path": "@semantic-release/git",
-        "assets": [
-          "package.json"
-        ]
+        "assets": ["package.json"]
       }
     ],
     "prepare": [
