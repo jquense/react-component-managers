@@ -1,12 +1,8 @@
 {
-  "presets": [
-    ["jason", { "runtime": false  }]
-  ],
+  "presets": [["jason", { "runtime": false }]],
   "env": {
     "esm": {
-      "presets": [
-        ["jason", { "runtime": false, "modules": false }]
-      ]
+      "presets": [["jason", { "runtime": false, "modules": false }]]
     }
   }
 }

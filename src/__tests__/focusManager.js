@@ -12,7 +12,7 @@ describe('focusManager', () => {
   class Input extends React.Component {
     constructor(props) {
       super(props)
-      let { handleBlur, handleFocus } = focusManager(this, this.props.config)
+      let { handleBlur, handleFocus } = focusManager(this, this.props.config) //eslint-disable-line
       this.handleBlur = jest.fn(handleBlur)
       this.handleFocus = jest.fn(handleFocus)
     }

@@ -9,7 +9,6 @@ describe('autoFocus', () => {
 
     let inst = new Dummy()
     autoFocus(inst)
-    let i = 0
 
     inst.componentDidMount()
     expect(inst.focus).toHaveBeenCalled()

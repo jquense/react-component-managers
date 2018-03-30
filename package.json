@@ -6,12 +6,12 @@
   "modules": "es/index.js",
   "files": ["lib", "es"],
   "scripts": {
-    "build": "babel src --out-dir lib && npm run build:esm",
-    "build:esm": "BABEL_ENV=esm babel src --out-dir es",
-    "test": "jest",
+    "build": "babel src -d lib --ignore '**/__tests__' && npm run build:esm",
+    "build:esm": "babel src -d es --env-name esm --ignore '**/__tests__'",
+    "test": "eslint src && jest",
     "tdd": "jest --watch",
     "prepublishOnly": "npm run build",
-    "clean": "rm -rf lib",
+    "clean": "rm -rf lib es",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
@@ -23,16 +23,20 @@
     "react-dom": ">=15.3.0"
   },
   "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^22.4.3",
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
     "@semantic-release/changelog": "^2.0.1",
     "@semantic-release/git": "^4.0.1",
     "@semantic-release/npm": "^3.2.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-preset-jason": "^4.1.0",
+    "eslint": "^4.19.1",
     "eslint-config-jason": "^4.0.0",
     "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "semantic-release": "^15.1.4"
