@@ -4,16 +4,24 @@
   "description": "react-component-managers React component",
   "main": "lib/index.js",
   "modules": "es/index.js",
-  "files": ["lib", "es"],
+  "files": [
+    "lib",
+    "es"
+  ],
   "private": true,
   "scripts": {
     "build": "babel src --out-dir lib && npm run build:esm",
     "build:esm": "BABEL_ENV=esm babel src --out-dir es",
+    "test": "jest",
+    "tdd": "jest --watch",
     "prepublishOnly": "npm run build",
     "clean": "rm -rf lib",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3",
+    "jest": "^22.4.3",
     "prop-types": "^15.6.1",
     "spy-on-component": "^1.1.0"
   },
@@ -40,14 +48,18 @@
     "type": "git",
     "url": "https://github.com/jquense/react-component-managers.git"
   },
-  "keywords": ["react-component"],
+  "keywords": [
+    "react-component"
+  ],
   "release": {
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
       {
         "path": "@semantic-release/git",
-        "assets": ["package.json"]
+        "assets": [
+          "package.json"
+        ]
       }
     ],
     "prepare": [
